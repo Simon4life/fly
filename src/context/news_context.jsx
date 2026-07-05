@@ -14,10 +14,10 @@ const initialState = {
 
 export const GlobalProvider = ({children}) => {
     const [state, dispatch] = useReducer(reducer, initialState);
-
     const getNewsText = async (articleUrl) => {
+        console.log("Fetching news content for URL:", articleUrl);
         try {
-            const data = await axios.post("https://brief-news.onrender.com/analyze", {url: articleUrl});
+            const data = await axios.post("https://brief-1ptv.onrender.com/analyze", {url: articleUrl});
             dispatch({type: "SET_NEWS_CONTENT", payload: data.data});
             const existingSummary = JSON.parse(localStorage.getItem("recent_summary"));
             if (existingSummary) {

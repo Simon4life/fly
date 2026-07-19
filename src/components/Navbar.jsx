@@ -14,7 +14,7 @@ const Navbar = () => {
 
   return (
     <header className='w-full  h-16 px-6 flex items-center justify-between lg:px-12 bg-white border-b border-solid top-0 z-50 dark:bg-gray-800 shadow-md'>
-        <h2 className='text-slate-900 dark:text-slate-100 text-lg font-bold leading-tight tracking-tight'>News Brief</h2>
+        <a className='text-slate-900 dark:text-slate-100 text-lg font-bold leading-tight tracking-tight'>News Brief</a>
         <div className="flex flex-1 justify-end gap-4 items-center">
         <div className="flex gap-2">
             

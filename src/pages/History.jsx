@@ -36,14 +36,14 @@ const historyData = [
 
 export default function History() {
   return (
-    <main className="md:ml-64 min-h-screen flex flex-col">
-      <div className="mt-20 px-6 py-8 flex-1">
+    <main className="md:ml-15 min-h-screen">
+      <div className=" px-6 py-8">
         <div className="mb-12">
-          <h2 className="text-4xl font-extrabold font-display tracking-tight text-white mb-2">
+          <h2 className="text-4xl font-extrabold font-display text-black dark:text-white tracking-tight mb-2">
             History
           </h2>
 
-          <p className="text-on-surface-variant max-w-xl">
+          <p className="text-black dark:text-black max-w-xl">
             Review your personalized knowledge library. Every summary you've
             read, indexed by time and intelligence category.
           </p>
@@ -69,8 +69,6 @@ export default function History() {
           }
         </section>
       </div>
-
-      {/* <FloatingActionButton /> */}
     </main>
   );
 }

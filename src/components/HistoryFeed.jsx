@@ -4,7 +4,7 @@ export default function HistoryContent() {
       {/* Section: Today */}
       <section>
         <div className="flex items-center gap-4 mb-6">
-          <span className="text-[10px] font-bold tracking-[0.2em] text-tertiary uppercase">
+          <span className="text-[10px] font-bold tracking-[0.2em] uppercase">
             Today
           </span>
           <div className="h-px flex-1 bg-gradient-to-r from-outline-variant/30 to-transparent"></div>

@@ -9,7 +9,8 @@ const initialState = {
     isLoading: true,
     errorMessage: null,
     newsContent: null,
-    newsUrl: null
+    newsUrl: null,
+    isDarkMode: true,
 }
 
 export const GlobalProvider = ({children}) => {
@@ -34,9 +35,11 @@ export const GlobalProvider = ({children}) => {
     const updateUrl = (url) => {
         dispatch({type: "SET_NEWS_URL", payload: url});
     }
+    const toggleDarkMode = () => {
+        dispatch({ type: "TOGGLE_DARK_MODE" });
+    }
 
-
-    return (<GlobalContext.Provider value={{...state, getNewsText, updateUrl}}>{children}</GlobalContext.Provider>)
+    return (<GlobalContext.Provider value={{...state, getNewsText, updateUrl, toggleDarkMode}}>{children}</GlobalContext.Provider>)
 }
 
 export const useGlobalContext = () => {

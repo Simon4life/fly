@@ -6,7 +6,7 @@ import { CiBookmark } from "react-icons/ci";
 const Sidebar = () => {
   return (
 
-    <aside>
+    <aside className='w-full md:w-1/4 bg-white dark:bg-gray-800 rounded-xl shadow-lg shadow-[#2214b8]/20'>
         <div className="hidden md:flex flex-col gap-4 p-6 md:p-10">
             <ul>
                 <li className='text-slate-900 mb-6 dark:text-white font-bold text-lg cursor-pointer hover:text-primary transition-colors'>

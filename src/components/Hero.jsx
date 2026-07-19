@@ -8,7 +8,7 @@ import { useGlobalContext } from '../context/news_context.jsx';
 const Hero = () => {
   const [url, setUrl] = useState("")
   const navigate = useNavigate()
-  const { updateUrl } = useGlobalContext()
+  const { updateUrl, isDarkMode } = useGlobalContext()
 
 
   const handleSubmit = (e)=> {
@@ -24,11 +24,11 @@ const Hero = () => {
 
 
   return (
-    <section className=''>
+    <section className={`w-full min-h-[calc(100vh-4rem)] flex flex-col items-center justify-center px-6 md:px-12 py-8 ${isDarkMode ? "bg-slate-900" : "bg-slate-50"}`}>
 
-      <div className="mb-8 bg-white dark:bg-slate-900 rounded-2xl p-6 md:p-10 shadow-sm border border-slate-200 dark:border-slate-800">
+      <div className={` mb-8 bg-white dark:bg-slate-900 rounded-2xl p-6 md:p-10 shadow-sm border border-slate-200 dark:border-slate-800`}>
         <div className="">
-          <h3 className='text-black font-bold text-3xl md:text-4xl mb-2'>Summarize the News</h3>
+          <h3 className='text-black dark:text-white font-bold text-3xl md:text-4xl mb-2'>Summarize the News</h3>
           <p className='text-slate-600 dark:text-slate-400  md:text-lg mb-8 leading-relaxed'>paste any artilce link below. Quickly use AI to extract the key points, main arguments and takeaway in seconds.</p>
 
           {/* url form */}

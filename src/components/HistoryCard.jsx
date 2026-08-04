@@ -2,7 +2,7 @@ import React from 'react'
 
 const HistoryCard = ({img, category, title, excerpt, readTime, timestamp}) => {
   return (
-   <div className="text-gray-900 dark:text-white group mb-4 relative rounded-xl overflow-hidden shadow-2xl shadow-black/20 p-5 border-t border-l border-white/5 transition-all hover:translate-y-[-4px]">
+   <div className="text-gray-900 bg-gray-100 dark:bg-gray-800 dark:text-white group mb-4 relative rounded-xl overflow-hidden shadow-2xl shadow-black/20 p-5 border-t border-l border-white/5 transition-all hover:translate-y-[-4px]">
 
         <div className="h-48 rounded-lg overflow-hidden mb-4 relative">
             <img

@@ -29,7 +29,7 @@ const Sidebar = () => {
                         <span className='text-slate-900 mr-2'>
                             <CiBookmark/>
                         </span>
-                        Saved
+                        Recent
                     </NavLink>
                     
                 </li>

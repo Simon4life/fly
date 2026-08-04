@@ -4,7 +4,7 @@ import Hero from './components/Hero'
 import Footer from './components/Footer'
 import Layout from './layout'
 import History from './pages/History'
-import Saved from './pages/Saved'
+import RecentNews from './pages/recentArticle'
 import Summary from "./pages/article-summary"
 import { Route, Routes } from 'react-router-dom'
 
@@ -16,7 +16,7 @@ function App() {
       <Route path='/' element={<Layout/>}>
         <Route index element={<Hero/>}/>
         <Route path='/history' element={<History/>}/>
-        <Route path='/saved' element={<Saved/>}/>
+        <Route path='/recent/:title' element={<RecentNews/>}/>
       </Route>
       <Route path='/summary' element={<Summary/>}/>
     </Routes>

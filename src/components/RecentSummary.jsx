@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom';
 
 const RecentSummary = () => {
   const { recentNewsSummary, newsUrl } = useGlobalContext();
+  console.log(recentNewsSummary
+  )
   if (recentNewsSummary === null) {
     return(
       <section className="flex flex-col gap-6">
@@ -31,14 +33,18 @@ const RecentSummary = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         
         {recentNewsSummary.map((summary, index) => (
-         <Link to={`/summary/:${newsUrl}`} key={index} className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 hover:border-primary/40 transition-all cursor-pointer group shadow-sm">
+         <Link to={`/recent/${summary.title}`} key={index} className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 hover:border-primary/40 transition-all cursor-pointer group shadow-sm">
+
           <img src={summary.mainImage} alt={summary.title} className="w-full h-40 object-cover rounded-lg mb-4"/>
+
           <div className="p-5">
             <div className="flex justify-between items-start mb-4">
             <span className="px-2 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-[10px] font-bold text-slate-500 uppercase tracking-widest">{summary.impact_category}</span>
             <span className="text-xs text-slate-400">2 hours ago</span>
           </div>
+
           <h4 className="font-bold text-lg text-slate-900 dark:text-white group-hover:text-primary transition-colors mb-2 line-clamp-2">{summary.title}</h4>
+
           <p className="text-sm text-slate-600 dark:text-slate-400 line-clamp-2 mb-4">{summary.summary}</p>
           </div>
           

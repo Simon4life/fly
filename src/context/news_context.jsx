@@ -10,7 +10,7 @@ const initialState = {
     errorMessage: null,
     newsContent: null,
     newsUrl: null,
-    isDarkMode: true,
+    isDarkMode: false,
 }
 
 export const GlobalProvider = ({children}) => {

@@ -8,6 +8,13 @@ const global_reducer = (state, action) => {
     if(action.type === "TOGGLE_DARK_MODE") {
         return {...state, isDarkMode: !state.isDarkMode};
     }
+    if(action.type === "TOGGLE_SIDEBAR") {
+        return {...state, isOpen: !state.isOpen}
+    }
+    if(action.type === "ERROR") {
+        console.log(action.payload)
+        return {...state, isLoading: false, error: true, errorMessage: action.payload}
+    }
     return state
 }
 

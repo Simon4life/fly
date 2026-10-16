@@ -1,8 +1,8 @@
 import React, {useEffect} from 'react'
 import { useGlobalContext } from '../context/news_context.jsx'
-
+import { Link } from 'react-router-dom';
 const Summary = () => {
-    const {isLoading, getNewsText, newsContent, newsUrl} = useGlobalContext();
+    const {isLoading, error, getNewsText, newsContent, newsUrl} = useGlobalContext();
     
     useEffect(() => {
         if(newsUrl) {
@@ -17,6 +17,14 @@ const Summary = () => {
                 <div className="spinner border-2 animate-spin w-20 rounded-full text-black h-20 border-t-0 border-l-0"></div>
             </div>
         )
+    }
+
+    if(error) {
+      return (
+        <div className="flex w-full items-center justify-center h-96">
+          <h2 className='text-black font-bold text-2xl'>opps! there seems to be an error</h2>
+        </div>
+      )
     }
 
   return (
@@ -112,7 +120,7 @@ const Summary = () => {
         </span>
       </div>
 
-      <div className="text-slate-700 dark:text-slate-300 max-w-none leading-7 sm:leading-8 break-words">
+      <div className="text-slate-700 dark:text-slate-300 text-justify max-w-none leading-7 sm:leading-8 break-words">
         <p className="whitespace-pre-line">
           {newsContent.summary}
         </p>
@@ -174,30 +182,6 @@ const Summary = () => {
         ))}
       </ul>
     </div>
-
-    {/* Related Topics */}
-    <div className="mt-8 sm:mt-12">
-      <h4 className="text-xs sm:text-sm font-bold text-slate-400 uppercase tracking-widest mb-4">
-        Related Topics
-      </h4>
-
-      <div className="flex flex-wrap gap-2">
-        {[
-          "Perovskite Cells",
-          "Renewable Tech",
-          "MIT Research",
-          "Green Energy 2024",
-        ].map((topic) => (
-          <span
-            key={topic}
-            className="px-3 sm:px-4 py-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-full text-xs sm:text-sm font-medium hover:border-primary transition-colors cursor-pointer"
-          >
-            {topic}
-          </span>
-        ))}
-      </div>
-    </div>
-
   </div>
 </section>
 )}

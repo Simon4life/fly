@@ -5,8 +5,7 @@ import { Link } from 'react-router-dom';
 
 const RecentSummary = () => {
   const { recentNewsSummary, newsUrl } = useGlobalContext();
-  console.log(recentNewsSummary
-  )
+
   if (recentNewsSummary === null) {
     return(
       <section className="flex flex-col gap-6">

@@ -7,14 +7,18 @@ const GlobalContext = React.createContext();
 const initialState = {
     recentNewsSummary: JSON.parse(localStorage.getItem("recent_summary")) || null,
     isLoading: true,
+    error: false,
     errorMessage: null,
     newsContent: null,
     newsUrl: null,
     isDarkMode: false,
+    isOpen: false
 }
 
 export const GlobalProvider = ({children}) => {
     const [state, dispatch] = useReducer(reducer, initialState);
+
+    // fetch news article
     const getNewsText = async (articleUrl) => {
         console.log("Fetching news content for URL:", articleUrl);
         try {
@@ -28,10 +32,15 @@ export const GlobalProvider = ({children}) => {
                 localStorage.setItem("recent_summary", JSON.stringify([data.data]));
             }
         } catch (error) {
-            console.log(error);
+            dispatch({type: "ERROR", payload: error})
+            
         }
     }
 
+
+    const setIsOpen = () => {
+        dispatch({type: "TOGGLE_SIDEBAR"})
+    }
     const updateUrl = (url) => {
         dispatch({type: "SET_NEWS_URL", payload: url});
     }
@@ -39,7 +48,7 @@ export const GlobalProvider = ({children}) => {
         dispatch({ type: "TOGGLE_DARK_MODE" });
     }
 
-    return (<GlobalContext.Provider value={{...state, getNewsText, updateUrl, toggleDarkMode}}>{children}</GlobalContext.Provider>)
+    return (<GlobalContext.Provider value={{...state, setIsOpen, setIsOpen, getNewsText, updateUrl, toggleDarkMode}}>{children}</GlobalContext.Provider>)
 }
 
 export const useGlobalContext = () => {

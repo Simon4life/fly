@@ -1,9 +1,9 @@
 import React from 'react'
-import { FaMoon, FaSun } from 'react-icons/fa'
+import { MdMenu } from "react-icons/md";
 import { useGlobalContext } from '../context/news_context'
 import { useEffect } from 'react'
 const Navbar = () => {
-  const { toggleDarkMode } = useGlobalContext();
+  const { toggleDarkMode, isOpen, setIsOpen } = useGlobalContext();
   // useEffect(() => {
   //   if (isDarkMode) {
   //     document.documentElement.classList.add('dark');
@@ -17,10 +17,20 @@ const Navbar = () => {
         <a className='text-slate-900 dark:text-slate-100 text-lg font-bold leading-tight tracking-tight'>Fly News</a>
         <div className="flex flex-1 justify-end gap-4 items-center">
         <div className="flex gap-2">
+            <div className="md:hidden flex items-center justify-between p-4">
+        <button
+          type="button"
+          onClick={() => {
+            setIsOpen();
+          }}
+          aria-label="Open navigation menu"
+          aria-expanded={isOpen}
+          className="p-2 rounded-lg bg-white dark:bg-gray-800 text-slate-900 dark:text-white"
+        >
+          <MdMenu size={26} />
+        </button>
+      </div>
             
-            {/* <button className="flex items-center justify-center rounded-lg h-10 w-10 bg-slate-100 dark:bg-gray-500 text-slate-700 dark:text-slate-300 hover:bg-primary/10 transition-colors" onClick={toggleDarkMode}>
-              {isDarkMode ? <FaSun /> : <FaMoon />}
-            </button> */}
         </div>
         
         </div>
